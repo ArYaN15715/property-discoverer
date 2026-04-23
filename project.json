@@ -1,0 +1,28 @@
+{
+  "overview": "An immersive, exploration-driven real estate discovery platform for Property Discoverer, focused on Vadodara's Sama-Savli Road area. Features a hero with AI-style search, smart filters, Pinterest-inspired property grid, property detail modals, favorites, personalized recommendations, and soft-sell CTAs wired to WhatsApp and direct call.",
+  "features": [
+    "Animated hero with AI-style search bar",
+    "Smart filters (budget, location, lifestyle tags)",
+    "Pinterest/Airbnb-style property discovery grid",
+    "Property detail popup/modal with full info and image gallery",
+    "Save/favorite properties (localStorage persistence)",
+    "Recommended for You personalized section",
+    "Trust section with local expertise messaging",
+    "WhatsApp & Expert Call CTAs (wired to real numbers)",
+    "Sama-Savli location explorer section",
+    "Mobile sticky CTA bar",
+    "Skeleton loading + shimmer effects",
+    "Smooth Framer Motion animations throughout"
+  ],
+  "category": "real-estate",
+  "tags": [
+    "real-estate",
+    "vadodara",
+    "property-discovery",
+    "immersive-ui",
+    "framer-motion",
+    "mobile-first",
+    "sama-savli"
+  ],
+  "last_updated": "2026-04-21T08:29:01.469Z"
+}

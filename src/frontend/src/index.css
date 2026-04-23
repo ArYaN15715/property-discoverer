@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Sora", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "Courier New", monospace;
+    --radius: 0.625rem;
+
+    /* Light background, navy primary, gold accent, red destructive */
+    --background: 0.975 0.005 255;
+    --foreground: 0.18 0.04 265;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.04 265;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.04 265;
+
+    /* Navy #1a2744 → oklch ≈ 0.27 0.07 266 */
+    --primary: 0.27 0.07 266;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.92 0.005 255;
+    --secondary-foreground: 0.27 0.07 266;
+    --muted: 0.94 0.003 255;
+    --muted-foreground: 0.5 0.02 255;
+
+    /* Gold #d4a017 → oklch ≈ 0.73 0.18 75 */
+    --accent: 0.73 0.18 75;
+    --accent-foreground: 0.15 0.04 265;
+
+    /* Red #c0392b → oklch ≈ 0.52 0.21 27 */
+    --destructive: 0.52 0.21 27;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0.008 255;
+    --input: 0.92 0.005 255;
+    --ring: 0.73 0.18 75;
+
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.6 0.12 185;
+    --chart-3: 0.4 0.07 227;
+    --chart-4: 0.83 0.19 84;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.27 0.07 266;
+    --sidebar-foreground: 0.98 0 0;
+    --sidebar-primary: 0.73 0.18 75;
+    --sidebar-primary-foreground: 0.15 0.04 265;
+    --sidebar-accent: 0.35 0.06 266;
+    --sidebar-accent-foreground: 0.98 0 0;
+    --sidebar-border: 0.35 0.06 266;
+    --sidebar-ring: 0.73 0.18 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Sora", sans-serif;
+  }
+
+  .font-body {
+    font-family: "Inter", sans-serif;
+  }
+
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .shadow-card {
+    box-shadow: 0 2px 12px rgba(26, 39, 68, 0.08);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 8px 32px rgba(26, 39, 68, 0.14);
+  }
+
+  .shadow-navy {
+    box-shadow: 0 4px 20px rgba(26, 39, 68, 0.2);
+  }
+
+  .gradient-gold-accent {
+    background: linear-gradient(135deg, #d4a017, #f0d060);
+  }
+
+  .gradient-navy {
+    background: linear-gradient(135deg, #1a2744, #2c4282);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 24px rgba(212, 160, 23, 0.3);
+  }
+
+  .card-hover {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(26, 39, 68, 0.16);
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      oklch(var(--muted)) 0%,
+      oklch(var(--secondary)) 50%,
+      oklch(var(--muted)) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .text-navy {
+    color: #1a2744;
+  }
+
+  .text-gold {
+    color: #d4a017;
+  }
+
+  .text-brand-red {
+    color: #c0392b;
+  }
+
+  .bg-navy {
+    background-color: #1a2744;
+  }
+
+  .bg-gold {
+    background-color: #d4a017;
+  }
+
+  .bg-brand-red {
+    background-color: #c0392b;
+  }
+
+  .border-gold {
+    border-color: #d4a017;
+  }
+
+  .border-navy {
+    border-color: #1a2744;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-gold {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(212, 160, 23, 0);
+  }
+}

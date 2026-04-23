@@ -1,0 +1,71 @@
+type PropertyType = 
+ variant {
+   Apartment;
+   Commercial;
+   Penthouse;
+   Plot;
+   Villa;
+ };
+type PropertyFilter = 
+ record {
+   budgetRange: opt BudgetRange;
+   locality: opt text;
+   propertyType: opt PropertyType;
+   searchQuery: opt text;
+   tags: vec LifestyleTag;
+ };
+type Property = 
+ record {
+   areaSqft: nat;
+   bathrooms: nat;
+   bedrooms: nat;
+   budgetRange: BudgetRange;
+   description: text;
+   furnished: text;
+   id: nat;
+   imageUrls: vec text;
+   isFeatured: bool;
+   isNew: bool;
+   locality: text;
+   location: text;
+   postedDaysAgo: nat;
+   price: nat;
+   priceLabel: text;
+   propertyType: PropertyType;
+   tags: vec LifestyleTag;
+   title: text;
+ };
+type LifestyleTag = 
+ variant {
+   FamilyFriendly;
+   GreatView;
+   InvestmentReady;
+   LuxuryAmenities;
+   NearSchools;
+   ReadyToMove;
+ };
+type Inquiry = 
+ record {
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   propertyId: opt nat;
+   timestamp: int;
+ };
+type BudgetRange = 
+ variant {
+   Above80L;
+   FiftyTo80L;
+   ThirtyTo50L;
+   Under30L;
+ };
+service : {
+  getFeatured: () -> (vec Property) query;
+  getInquiries: () -> (vec Inquiry) query;
+  getProperties: (filter: PropertyFilter) -> (vec Property) query;
+  getProperty: (id: nat) -> (opt Property) query;
+  getRecommended: (limit: nat) -> (vec Property) query;
+  submitInquiry: (name: text, phone: text, message: text, propertyId:
+   opt nat) -> (nat);
+}

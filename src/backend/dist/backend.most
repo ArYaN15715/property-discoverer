@@ -1,0 +1,61 @@
+// Version: 1.0.0
+type BudgetRange__303511069 =
+  {#Above80L; #FiftyTo80L; #ThirtyTo50L; #Under30L};
+type Inquiry__810583386 =
+  {
+    id : Nat;
+    message : Text;
+    name : Text;
+    phone : Text;
+    propertyId : ?Nat;
+    timestamp : Int
+  };
+type LifestyleTag__693212969 =
+  {
+    #FamilyFriendly;
+    #GreatView;
+    #InvestmentReady;
+    #LuxuryAmenities;
+    #NearSchools;
+    #ReadyToMove
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type PropertyType__97042471 =
+  {#Apartment; #Commercial; #Penthouse; #Plot; #Villa};
+type Property__615325142 =
+  {
+    areaSqft : Nat;
+    bathrooms : Nat;
+    bedrooms : Nat;
+    budgetRange : BudgetRange__303511069;
+    description : Text;
+    furnished : Text;
+    id : Nat;
+    imageUrls : [Text];
+    isFeatured : Bool;
+    isNew : Bool;
+    locality : Text;
+    location : Text;
+    postedDaysAgo : Nat;
+    price : Nat;
+    priceLabel : Text;
+    propertyType : PropertyType__97042471;
+    tags : [LifestyleTag__693212969];
+    title : Text
+  };
+actor {
+  stable inquiries :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Inquiry__810583386]];
+      var elementIndex : Nat__490723111
+    };
+  stable var nextInquiryId : Nat;
+  stable properties :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Property__615325142]];
+      var elementIndex : Nat__490723111
+    }
+};
